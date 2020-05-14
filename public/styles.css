@@ -37,10 +37,7 @@
   .link{
     color: white !important;
   }
-  .text-Input {
-    display: inline-grid;
-    margin-bottom: 10px !important;
-  }
+
   footer {
     position: absolute;
     text-align: center;
@@ -64,19 +61,18 @@
     color: #91c7f3;
     font-family: "McLaren", cursive;
    }
-   .login{
-     background-color: lightblue !important;
-   }
+
   .login-text{
     color: #91c7f3;
     font-family: "McLaren", cursive;
     margin-bottom: 2rem;
    }
-  .login-input{
+   .login-input{
     display: inline-grid;
-    margin-bottom: 10px !important;
-    width:50%;
+    position: relative;
+    left: 25%;
   }
+
    .login-form{
     position: absolute;
     top: 20%; 
@@ -90,7 +86,6 @@
     width: 50%;
     height: 60%;
     margin: 16px;
-    float: left;
     text-align: center;
    }
    .dialog-title h2{
