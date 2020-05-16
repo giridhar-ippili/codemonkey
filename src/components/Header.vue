@@ -3,9 +3,9 @@
       <div class="header-content">
       <h1>Buddies</h1> 
       <h2>{{timeNow}}</h2> 
-      <div className="header-greeting">
+      <div class ="header-greeting">
       <h5>Hi Buddy</h5> 
-      <v-btn class="mx-2" fab dark color="indigo">Add  </v-btn> 
+      <v-btn class="add-button" fab><v-icon>+</v-icon></v-btn>       
       </div>
     </div>   
     </header>

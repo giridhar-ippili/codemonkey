@@ -1,18 +1,17 @@
 <template>
-  <div>
-    
-  </div>
+  <footer>
+      <p>Copyright Ⓒ {{getYear()}}</p>
+    </footer>
 </template>
 
 <script>
 export default {
   name: 'Footer',
-  props: {
-    msg: String
+  methods: {
+    getYear(){
+      const currentDate = new Date();
+      return currentDate.getFullYear();       
+    }
   }
 }
 </script>
-
-<style scoped>
-
-</style>
