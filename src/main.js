@@ -9,7 +9,7 @@ Vue.config.productionTip = false;
 
 Vue.use(Vuetify, {
   icons: {
-    iconfont: "md"
+    iconfont: "mdi"
   },
   theme: { dark: true }
 });

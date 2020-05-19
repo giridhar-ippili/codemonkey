@@ -6,7 +6,8 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   state: {
       currentTime : Date,
-      dialog: false
+      dialog: false,
+      contacts:[]
   },
   mutations: {},
   actions: {},

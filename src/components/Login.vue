@@ -62,7 +62,9 @@
     methods: {
       submit () {
         this.$v.$touch()
-        this.$router.push('/home')
+        if(this.name && this.email){
+          this.$router.push('/home')
+        }        
       },
       clear () {
         this.$v.$reset()

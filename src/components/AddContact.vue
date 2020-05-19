@@ -3,19 +3,20 @@
   <v-row justify="center">
       <v-dialog v-model="dialog" class= "add-contact-form" persistent max-width="600px">
         <template v-slot:activator="{ on }">
-          <v-btn v-on="on" class="add-button" fab @click="openDialog()">+</v-btn>
+          <v-btn v-on="on" class="add-button" fab><v-icon>mdi-plus</v-icon></v-btn>
         </template>
         <v-card>
-        <v-card-title>
+        <v-card-title class="dialog-title">
           <span>Add Contact</span>
-        </v-card-title>
+        </v-card-title>        
+        <br/>
         <v-card-text> 
                 <v-text-field 
                     label="Full name" 
                     v-model="contact.name"
-                    :error-messages="requiredErrors"
+                    :error-messages="nameErrors"
                     required 
-                    outlined
+                    outlined            
                     class="col-12">
                 </v-text-field>
                 <v-text-field 
@@ -29,7 +30,7 @@
                 <v-text-field 
                     label="Mobile Number" 
                     v-model="contact.phone"
-                    :error-messages="requiredErrors"
+                    :error-messages="phoneErrors"
                     required
                     outlined
                     Number
@@ -37,7 +38,7 @@
                 </v-text-field>
                 <v-select
                   :items="['Male', 'Female', 'I dont know']"
-                  :error-messages="requiredErrors"
+                  :error-messages="genderErrors"
                   v-model="contact.gender"
                   label="Gender"
                   required
@@ -81,34 +82,47 @@
     }),
 
     computed: {
-      requiredErrors () {
+      nameErrors () {
         const errors = []
         if (!this.$v.name.$dirty) return errors
-        !this.$v.name.required && errors.push('This field is required.')
+        !this.contact.name && errors.push('Please name your contact.')
         return errors
       },
       emailErrors () {
         const errors = []
         if (!this.$v.email.$dirty) return errors
-        !this.$v.email.email && errors.push('Must be valid e-mail')
-        !this.$v.email.required && errors.push('This field is required')
+        !this.$v.email && errors.push('Must be valid e-mail!')
+        !this.contact.email && errors.push('You cant skip email.')
+        return errors
+      },
+      phoneErrors () {
+        const errors = []
+        if (!this.$v.phone.$dirty) return errors
+        !this.contact.phone && errors.push('Mobile number is required.')
+        return errors
+      },
+      genderErrors () {
+        const errors = []
+        if (!this.$v.name.$dirty) return errors
+        !this.contact.gender && errors.push('Please pick one option.')
         return errors
       },
     },
 
    methods:{
-      openDialog(){
-        console.log('I am here')
-      },
       submit () {
         this.$v.$touch()
-        console.log()
         console.log(this.contact)
       },
       clear () {
         this.$v.$reset()
-        this.name = ''
-        this.email = ''
+        this.contact = {
+        name: '',
+        email: '',
+        phone: '',
+        gender:'',
+        img:''
+      }
         this.dialog = false
       },
     }

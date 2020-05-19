@@ -54,6 +54,9 @@
     height: auto;
     border-radius: 50%;
   }
+  .icons{
+    color: black !important;
+  }
   .initial-text{
     position: absolute;
     top: 50%; 
@@ -72,6 +75,11 @@
     position: relative;
     left: 25%;
   }
+  .speed-dail{
+    padding: 0 !important;
+    height: fit-content !important;
+    top: 0 !important;
+  }
 
    .login-form{
     position: absolute;
@@ -88,7 +96,7 @@
     margin: 16px;
     text-align: center;
    }
-   .dialog-title h2{
+   .dialog-title{
      font-family: "McLaren", cursive;
      color: #91c7f3;
    }
