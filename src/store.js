@@ -5,7 +5,8 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state: {
-      currentTime : Date
+      currentTime : Date,
+      dialog: false
   },
   mutations: {},
   actions: {},

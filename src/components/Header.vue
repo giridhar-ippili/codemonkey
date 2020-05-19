@@ -5,7 +5,8 @@
       <h2>{{timeNow}}</h2> 
       <div class ="header-greeting">
       <h5>Hi Buddy</h5> 
-      <v-btn class="add-button" fab><v-icon>+</v-icon></v-btn>       
+      <!-- <v-btn class="add-button" fab><v-icon>+</v-icon></v-btn>     -->
+      <AddContact/>   
       </div>
     </div>   
     </header>
@@ -13,8 +14,12 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
+import AddContact from './AddContact.vue'
 export default {
   name: 'Header',
+  components: {
+    AddContact
+  },
   data() {
     return {
         timeNow:""
