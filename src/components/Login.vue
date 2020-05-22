@@ -4,7 +4,7 @@
     <h1 class="login-text">Welcome to Buddy Keeper</h1>
     <label>Name*</label>
     <v-text-field
-      v-model="name"
+      v-model="loggedUser.name"
       :error-messages="nameErrors"
       required
       outlined
@@ -14,7 +14,7 @@
     ></v-text-field>
     <label>Email*</label>
     <v-text-field
-      v-model="email"
+      v-model="loggedUser.email"
       :error-messages="emailErrors"
       required
       outlined
@@ -32,6 +32,7 @@
   import { required, email } from 'vuelidate/lib/validators'
 
   export default {
+    name: 'Login',
     mixins: [validationMixin],
     validations: {
       name: { required},
@@ -39,22 +40,24 @@
     },
 
     data: () => ({
-      name: '',
-      email: ''
+     loggedUser:{
+        name:'',
+        email:''
+      }
     }),
 
     computed: {
       nameErrors () {
         const errors = []
         if (!this.$v.name.$dirty) return errors
-        !this.$v.name.required && errors.push('Name is required.')
+        !this.loggedUser.name && errors.push('Name is required.')
         return errors
       },
       emailErrors () {
         const errors = []
         if (!this.$v.email.$dirty) return errors
         !this.$v.email.email && errors.push('Must be valid e-mail')
-        !this.$v.email.required && errors.push('E-mail is required')
+        !this.loggedUser.email && errors.push('E-mail is required')
         return errors
       },
     },
@@ -62,14 +65,15 @@
     methods: {
       submit () {
         this.$v.$touch()
-        if(this.name && this.email){
+        if(this.loggedUser.name && this.loggedUser.email){
+          this.$store.dispatch("setLoggedUser", this.loggedUser);
           this.$router.push('/home')
         }        
       },
       clear () {
         this.$v.$reset()
-        this.name = ''
-        this.email = ''
+        this.loggedUser.name = ''
+        this.loggedUser.email = ''
       },
     },
   }

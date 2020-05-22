@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from "./router.js"
 import { store } from './store.js'
 import Vuetify from 'vuetify'
+import UUID from 'vue-uuid'
 import "vuetify/dist/vuetify.min.css"
 import '@mdi/font/css/materialdesignicons.css'
 
@@ -14,6 +15,8 @@ Vue.use(Vuetify, {
   },
   theme: { dark: true }
 });
+
+Vue.use(UUID);
 
 new Vue({
   router,

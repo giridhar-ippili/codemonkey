@@ -120,7 +120,10 @@
     border-color: #91c7f3 !important;
   }
   .delete-button{
-    position: absolute;
+    background-color: #91c7f3 !important;
+    color: #fff !important;
+    font-family: "McLaren", cursive !important;
+    border-radius: 7px !important;
   }
   .dropdown{
     width: -webkit-fill-available;
@@ -141,7 +144,7 @@
     
   }
   .header-greeting h5{
-    padding: 15px 10px 0 0;
+    padding: 15px 25px 0 0;
   }
   .note {
     background: #fff;

@@ -16,18 +16,8 @@
           <v-icon v-else>mdi-dots-vertical</v-icon>
         </v-btn>
       </template>
-      <v-btn
-        fab
-        small
-      >
-        <v-icon class="icons">mdi-pencil</v-icon>
-      </v-btn>
-      <v-btn
-        fab
-        small
-      >
-        <v-icon class="icons">mdi-delete</v-icon>
-      </v-btn>
+      <EditContact :contact="contact"/>
+      <ConfirmDialog :contact="contact"/>
     </v-speed-dial>  
       </div>
       <img :src=contact.img alt='contact-img'/>
@@ -36,9 +26,17 @@
     </div>  
 </template>
 <script>
+import ConfirmDialog from './ConfirmDialog.vue'
+import EditContact from './EditContact.vue'
   export default {
+    name: 'Tile',
+    components: {
+     ConfirmDialog,
+     EditContact
+    },
     props: {
       contact:{
+        id:'',
         name: '',
         email: '',
         phone: '',
@@ -50,10 +48,7 @@
       fab:false,
       direction:"bottom",
       transition:"slide-y-reverse-transition",
-    }), 
-    created: function() {
-        console.log(this.contact)
-    }  
+    })
   }
 </script>
 
