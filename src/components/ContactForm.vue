@@ -106,8 +106,7 @@ import { required, email } from 'vuelidate/lib/validators'
         if(this.checkContact(this.contact)){
           this.submit()
           this.clearForm()
-        }
-        
+        }        
       },
       checkContact(contact){
         if(contact.name && contact.email && contact.phone && contact.gender){
@@ -120,7 +119,6 @@ import { required, email } from 'vuelidate/lib/validators'
         this.$v.$reset()
         this.clear()
       },
-      
     }
   }
   

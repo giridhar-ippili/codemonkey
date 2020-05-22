@@ -46,7 +46,6 @@ export const store = new Vuex.Store({
       })      
     },
     SET_USER(state, payload){
-      console.log(payload)
       state.loggedUser.name = payload.name
       state.loggedUser.email = payload.email
     }

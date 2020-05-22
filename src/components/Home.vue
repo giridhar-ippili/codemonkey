@@ -8,7 +8,6 @@
     <Footer/>
   </div>
 </template>
-
 <script>
 import Header from './Header.vue';
 import Tile from './Tile.vue';
